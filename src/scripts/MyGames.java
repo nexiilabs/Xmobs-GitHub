@@ -416,7 +416,7 @@ public class MyGames {
 			    }
 		 
 	     
-	     Thread.sleep(10000);
+	     Thread.sleep(10000); 
 	     driver.findElement(By.xpath("//ActionMenuView")).click();
 	     Thread.sleep(3000);
 	     driver.findElement(By.xpath("(//RelativeLayout)[3]")).click();
