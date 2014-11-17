@@ -237,66 +237,7 @@ public class MyInvitedGames {
 	  		System.out.println("Title of Navigated Page: " + driver.findElement(By.id("action_bar_title")).getText());
 	    
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	  /*  Thread.sleep(3000);
-	   //   driver.findElement(By.linkText("My Invited Games")).click();
-	   //   Thread.sleep(3000);
-	     // driver.findElement(By.xpath("//TextView[@value='Waiting Games']")).click();;
-	   driver.findElement(By.xpath("//TextView[@value='current Games']")).click();;
-	      Thread.sleep(10000);
-	    
-	      List<WebElement> WaitingGamesList_0 = driver.findElement(By.xpath("//FrameLayout[@id='content']")).findElements(By.id("lv_view_scheduled_games"));
-	       System.out.println(WaitingGamesList_0.size());
-	    Thread.sleep(10000);
-	    List<WebElement> WaitingGames_1 = new ArrayList<WebElement>();
-	    WaitingGames_1 = WaitingGamesList_0.get(0).findElements(By.id("tv_item_joined_game_name"));   
-	    System.out.println("Number of games in waiting games List : " +  WaitingGames_1.size());
-	    System.out.println("Name of the Games in Waiting Games :");
-	    
-	    for(int g=0;g<WaitingGames_1.size();g++){
-	    	System.out.println(WaitingGames_1.get(g).getText());
-	    }
-	    
-	    
-	  //  tv_current_note_name
-	    
-	    tv_current_note_name
-	    
-	    driver.findElement(By.xpath("//View[@name='My Location']"));
-	    
-	    iv_change_view
-	    Zoom in
+	   	      
 //==================================================================================================================================================	    
 	    // validating current games when having multiple games waiting
 	/*    
