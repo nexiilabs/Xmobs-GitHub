@@ -75,7 +75,8 @@ public class TestBase {
     capa.setBrowserName("selendroid");
     capa.setPlatform(Platform.ANDROID);
     capa.setEmulator(false);
+    
     driver = new SelendroidDriver(capa);
-  
+   
   } 
 }
