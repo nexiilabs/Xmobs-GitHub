@@ -74,9 +74,8 @@ public class TestBase {
     capa.setLaunchActivity("com.nexii.treasurehunt.SplashScreen");
     capa.setBrowserName("selendroid");
     capa.setPlatform(Platform.ANDROID);
-//    capa.setSerial("0123456789ABCDEF");
     capa.setEmulator(false);
     driver = new SelendroidDriver(capa);
- 
+  
   } 
 }
