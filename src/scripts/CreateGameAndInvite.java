@@ -20,7 +20,6 @@ import io.selendroid.SelendroidLauncher;
 import io.selendroid.device.DeviceTargetPlatform;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -30,6 +29,7 @@ import org.openqa.selenium.interactions.touch.TouchActions;
 //import org.openqa.selenium.remote.server.handler.FindElement;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.SystemClock;
+import org.testng.annotations.Test;
 
 
 

@@ -22,7 +22,9 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
-public class MyGames {
+import testUtils.Helper;
+
+public class MyGames{
  
 	public SelendroidLauncher SelendriodServer = null;
 	public WebDriver driver = null;
@@ -41,7 +43,7 @@ public class MyGames {
 	    
 	    Thread.sleep(5000);
 	    driver = new SelendroidDriver(caps);
-		
+	    Thread.sleep(30000);
 	  }
 	
 	
@@ -168,7 +170,7 @@ public class MyGames {
 	  //  System.out.println(driver.findElement(By.id("action_bar_title")).getText());
 	    //Listing the elements & Picking Randomly in My Games
 	    
-	    Thread.sleep(5000);
+	    Thread.sleep(15000);
 	    List<WebElement> MyGames_1 = driver.findElements(By.id("tv_item_game_list"));
 	    /*  System.out.println("Number of Games in My Games list : " + MyGames_1.size());
 	    System.out.println("The List of Games are :  "+"\n");
@@ -249,8 +251,6 @@ public class MyGames {
 	    Thread.sleep(10000);
 	    
 	    driver.findElement(By.id("bt_note_save")).click();;
-	    Thread.sleep(10000);
-	    ViewGame();
 	    Thread.sleep(6000);
 	    
 //Validating Delete Note Button
