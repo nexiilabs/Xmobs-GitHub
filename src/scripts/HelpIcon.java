@@ -4,8 +4,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.nexiilabs.dbcon.DBConnection;
-
 public class HelpIcon {
     public static Connection connection =null;
     public static Statement statement;

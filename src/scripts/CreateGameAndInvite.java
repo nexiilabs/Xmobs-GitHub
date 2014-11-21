@@ -63,6 +63,7 @@ public class CreateGameAndInvite {
 			dr.findElement(By.id("btn_sign_in")).click();
 			Thread.sleep(5000);
 		}
+		System.out.println("hello hello");
 		// dr.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		// dr.findElement(By.id("btn_join_game")).click();
 		// /*

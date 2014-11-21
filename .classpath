@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="D:/Xmobs-jars/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="D:/Xmobs-jars/selendroid-client-0.12.0.jar"/>
 	<classpathentry kind="lib" path="D:/Xmobs-jars/selendroid-standalone-0.12.0-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="D:/Xmobs-jars/testng-6.8.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
