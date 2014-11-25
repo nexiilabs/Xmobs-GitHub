@@ -2,6 +2,7 @@ package scripts;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -22,9 +23,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
-import testUtils.Helper;
-
-public class MyGames{
+public class MyGames {
  
 	public SelendroidLauncher SelendriodServer = null;
 	public WebDriver driver = null;
@@ -43,12 +42,13 @@ public class MyGames{
 	    
 	    Thread.sleep(5000);
 	    driver = new SelendroidDriver(caps);
-	    Thread.sleep(30000);
+		
 	  }
 	
 	
 	//New Note Method 
 	  public void NewNote() throws InterruptedException{
+		 
 		  Date d = new Date();
 		  Thread.sleep(4000);
 		  driver.findElement(By.id("bt_address_map")).click();
@@ -163,14 +163,24 @@ public class MyGames{
 		   }
 		
 //My Games validation
-	    Thread.sleep(5000);
+	    Thread.sleep(2000);
 	    driver.findElement(By.linkText("My Games")).click();
 	    System.out.println("Validating My Games tab :");
 	    
 	  //  System.out.println(driver.findElement(By.id("action_bar_title")).getText());
 	    //Listing the elements & Picking Randomly in My Games
 	    
-	    Thread.sleep(15000);
+	    if(driver.findElements(By.id("tv_item_game_list")).isEmpty()){
+	    	System.out.println("\n"+"Oops ..There are No games in MyGames List");
+	    	Thread.sleep(3000);
+	    	driver.findElement(By.id("Home")).click();
+	    	Thread.sleep(3000);
+	    	System.out.println("Application is Navigated to :" + driver.findElement(By.id("action_bar_title")).getText()+" Page");
+	    	
+	    }
+	    	
+	    	
+	    Thread.sleep(5000);
 	    List<WebElement> MyGames_1 = driver.findElements(By.id("tv_item_game_list"));
 	    /*  System.out.println("Number of Games in My Games list : " + MyGames_1.size());
 	    System.out.println("The List of Games are :  "+"\n");
@@ -193,7 +203,43 @@ public class MyGames{
 	    System.out.println("Validating a Randomly Selected Game :");
 	    System.out.println("Game Name : "+driver.findElement(By.id("tv_game_title")).getText());
 	    System.out.println("Game " +driver.findElement(By.id("et_game_desc")).getText());
+	    
+	  //Scenario Where There Is No Notes
+	    if(driver.findElements(By.id("tv_item_note_list")).isEmpty()){
+	    	System.out.println("\n"+"Oops ..There are No Notes in This Game");
+	    	Thread.sleep(3000);
+	    	driver.findElement(By.xpath("//ActionMenuView")).click();
+	    	 Thread.sleep(4000);
+		    driver.findElement(By.xpath("(//RelativeLayout)[1]")).click();
+		    Thread.sleep(4000);
+		    driver.findElement(By.id("atoText")).sendKeys("Maharashtra,India");
+		    Thread.sleep(4000);
+	    	NewNote();
+	    	Thread.sleep(4000);
+	    	ViewGame();
+	    	//NewNote();
+	    	
+	    }
+	    
+	    Thread.sleep(6000);
 	    List<WebElement> CreatedNoteList = driver.findElement(By.id("notes_listView")).findElements(By.id("tv_item_note_list"));
+//	    Thread.sleep(10000);
+	    if(CreatedNoteList.size()>=2){
+	    	
+	    	System.out.println("\n"+"Number of notes is Morethan Two");
+	    	// Deleting a Note
+		    List<WebElement> DeleteList = driver.findElement(By.id("notes_listView")).findElements(By.id("iv_delete_note"));
+		    int w = r.nextInt(DeleteList.size());
+		    Thread.sleep(10000);
+		    DeleteList.get(w).click();
+		    Thread.sleep(5000);
+		    driver.findElement(By.id("button1")).click(); 
+		     	
+	    }
+	    
+	    Thread.sleep(10000); 
+	    
+	    List<WebElement> CreatedNoteList1 = driver.findElement(By.id("notes_listView")).findElements(By.id("tv_item_note_list"));
 	    System.out.println("\n"+"Number Of Notes Plotted : " + CreatedNoteList.size()+"\n");
 	    System.out.println("Names of the Notes plotted : "); 
 	    for(int c=0;c<CreatedNoteList.size();c++){
@@ -201,13 +247,14 @@ public class MyGames{
 	       }
 	    
 	    Thread.sleep(10000);
-	     
+	    
 //Validating New Note Before tab.
 	    
 	    System.out.println("\n"+"Validating Edit Note & New Note Before : ");
-	    int n = r.nextInt(CreatedNoteList.size());
+	    Thread.sleep(5000);
+	    int n = r.nextInt(CreatedNoteList1.size());
 	    System.out.println("Randomly Picked Note Number : " +n+"\n"+"Randomly Picked Note Name : "+ CreatedNoteList.get(n).getText());
-	    CreatedNoteList.get(n).click();
+	    CreatedNoteList1.get(n).click();
 	    Thread.sleep(5000);
 	    driver.findElement(By.xpath("//ActionMenuView")).click();
 	    Thread.sleep(5000);
@@ -251,6 +298,8 @@ public class MyGames{
 	    Thread.sleep(10000);
 	    
 	    driver.findElement(By.id("bt_note_save")).click();;
+	//    Thread.sleep(10000);
+	//    ViewGame();
 	    Thread.sleep(6000);
 	    
 //Validating Delete Note Button
